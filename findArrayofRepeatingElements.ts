@@ -1,31 +1,17 @@
-function findDuplicates(duplicates : string[]) : string[]
+function findDuplicates(duplicates : string[]) : any
 {
-    let results : string[] = [];
-    let isThere : boolean = false;
-    for (let i=1; i<duplicates.length; i++)
+    const seenElements = new Set<string>();
+    const duplicateElements = new Set<string>();
+    for (let i=0; i<duplicates.length; i++)
     {
-        for (let j=0; j<i; j++)
+        if(seenElements.has(duplicates[i]))
         {
-            if(duplicates[i] === duplicates[j])
-            {
-                isThere = false;
-                for (let k=0; k<results.length; k++)
-                {
-                    if(results[k] == duplicates[j])
-                    {
-                        isThere = true;
-                        break;
-                    }
-                }
-
-                if(!isThere)
-                {
-                    results.push(duplicates[i]);
-                }
-
-            }
+            duplicateElements.add(duplicates[i])
+        }
+        else
+        {
+            seenElements.add(duplicates[i]);
         }
     }
-
-    return results;
+    return duplicateElements;
 }
