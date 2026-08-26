@@ -1,0 +1,122 @@
+# Problem #2 — Valid Anagram
+
+## Problem
+
+Given two strings, determine whether they are anagrams of each other.
+
+Two strings are anagrams when they contain the **same characters with the same frequencies**, regardless of their order.
+
+### Examples
+
+```text
+"listen", "silent" → true
+
+"triangle", "integral" → true
+
+"hello", "world" → false
+
+"aabb", "abab" → true
+
+"aabb", "abac" → false
+```
+
+## Approach
+
+The solution uses **frequency counting with `Map`**.
+
+Each string gets its own frequency Map:
+
+```text
+character → occurrence count
+```
+
+For example:
+
+```text
+"aabbc"
+
+a → 2
+b → 2
+c → 1
+```
+
+The approach has two phases:
+
+1. Build a frequency Map for each string.
+2. Compare the Maps:
+
+   * Their sizes must be equal.
+   * Every key in the first Map must exist in the second.
+   * The frequency for each key must match.
+
+If any condition fails, the strings are not anagrams.
+
+## Key Learning
+
+This problem reinforced the use of `Map` for **frequency counting**.
+
+It also introduced Map iteration using:
+
+```typescript
+for (const [key, value] of map)
+```
+
+This allows each key/value pair to be processed directly.
+
+Another important concept was distinguishing between:
+
+```typescript
+map.has(key)
+```
+
+which checks whether a key exists, and:
+
+```typescript
+map.get(key)
+```
+
+which retrieves its associated value.
+
+## Complexity
+
+**Time Complexity:** O(n + m)
+
+Where `n` and `m` are the lengths of the two strings.
+
+Each string is traversed to build its frequency Map, followed by a traversal of the Map entries.
+
+**Space Complexity:** O(n + m)
+
+The frequency Maps store the characters from both strings.
+
+## Edge Cases
+
+* Empty strings
+* Strings with different lengths
+* Same characters in different orders
+* Different character frequencies
+* A character existing in one string but not the other
+* Strings containing repeated characters
+
+## SDET Relevance
+
+Frequency comparison is useful in SDET work when validating structured data where ordering is irrelevant but content and quantity must match.
+
+Examples include:
+
+* Comparing API response fields where order doesn't matter
+* Validating extracted test data
+* Comparing collections of values
+* Checking that expected and actual datasets contain the same elements and frequencies
+
+## Problem-Solving Takeaway
+
+The important lesson was to convert the requirement:
+
+> "Do both strings contain the same characters the same number of times?"
+
+into a concrete representation:
+
+> **character → frequency**
+
+Once that representation was established, the comparison became straightforward.
