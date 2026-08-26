@@ -13,5 +13,5 @@ function findDuplicates(duplicates : string[]) : any
             seenElements.add(duplicates[i]);
         }
     }
-    return duplicateElements;
+    return [...duplicateElements];
 }

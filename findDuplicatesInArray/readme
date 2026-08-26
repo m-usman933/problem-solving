@@ -1,0 +1,81 @@
+# Problem #1— Find Duplicate Test IDs
+
+## Problem
+
+Given an array of test IDs, find all IDs that appear more than once.
+
+Each duplicate ID should appear **only once** in the result.
+
+### Examples
+
+```text
+["TC001", "TC002", "TC003", "TC002", "TC004", "TC001"]
+→ ["TC001", "TC002"]
+
+["TC001", "TC002", "TC003"]
+→ []
+
+["A", "B", "A", "C", "B", "A"]
+→ ["A", "B"]
+```
+
+## Initial Approach
+
+The first solution used nested loops:
+
+* Iterate through each test ID.
+* Compare it with previous IDs to determine whether it was already seen.
+* When a duplicate was found, search the results array to prevent adding the same duplicate more than once.
+
+This approach was correct but involved repeated searching.
+
+**Time Complexity:** O(n³) worst-case upper bound
+**Space Complexity:** O(n)
+
+## Optimization
+
+The key question was:
+
+> **"Have I seen this test ID before?"**
+
+A `Set` is a better fit for this type of lookup.
+
+The optimized approach uses:
+
+* One `Set` to track IDs seen for the first time.
+* One `Set` to store duplicates.
+* A single pass through the input.
+
+Because the duplicate collection is also a `Set`, repeated duplicates are automatically kept unique.
+
+**Time Complexity:** O(n) average
+**Space Complexity:** O(n)
+
+## Edge Cases
+
+* Empty array
+* Single element
+* No duplicates
+* One duplicate appearing multiple times
+* Multiple different duplicates
+
+## What I Learned
+
+* How to recognize a **membership-check problem**.
+* When to use a `Set` instead of repeatedly searching an array.
+* How the right data structure can eliminate nested loops.
+* Why optimization should come **after understanding the brute-force solution**.
+* A `Set` can also be useful for guaranteeing uniqueness in the output.
+
+## SDET Relevance
+
+Duplicate detection is common in SDET work, such as validating:
+
+* Test case IDs
+* API response records
+* User IDs
+* Database results
+* Test data
+* Log/event identifiers
+
+The same `Set` pattern can be used to efficiently detect duplicate values in large datasets.
