@@ -1,0 +1,109 @@
+# Problem #3 — Valid Parentheses
+
+## Problem
+
+Given a string containing only parentheses and brackets:
+
+```text
+( ) [ ] { }
+```
+
+determine whether the sequence is valid.
+
+A valid sequence must satisfy two conditions:
+
+* Every opening bracket has a matching closing bracket.
+* Brackets must close in the correct order.
+
+### Examples
+
+```text
+"()"      → true
+"()[]{}"  → true
+"{[]}"    → true
+"([)]"    → false
+"(]"       → false
+"((("      → false
+"]"        → false
+```
+
+## Approach
+
+The solution uses an array as a **Stack**.
+
+When an opening bracket is encountered, it is pushed onto the stack.
+
+When a closing bracket is encountered:
+
+1. Remove the most recently opened bracket using `pop()`.
+2. Compare it with the current closing bracket.
+3. If they do not form a valid pair, return `false`.
+
+After processing the entire string, the stack must be empty. Any remaining opening bracket means the sequence is incomplete and therefore invalid.
+
+### Key Insight
+
+A stack follows **Last In, First Out (LIFO)** behavior.
+
+The most recently opened bracket must therefore be the first one to close.
+
+For example:
+
+```text
+"([{}])"
+
+Open:  ( → [ → {
+Close: } → ] → )
+```
+
+This is why `Stack` is a natural fit for the problem.
+
+## Complexity
+
+**Time Complexity:** O(n)
+
+Each character is processed once.
+
+**Space Complexity:** O(n)
+
+In the worst case, all characters can be opening brackets and therefore stored in the stack.
+
+## Edge Cases
+
+* Empty string
+* Only opening brackets
+* Only closing brackets
+* Closing bracket encountered when the stack is empty
+* Incorrectly matched brackets
+* Correctly nested brackets
+
+## What I Learned
+
+* How to implement Stack behavior using an array.
+* How `push()` adds an element to the top of a stack.
+* How `pop()` removes and returns the most recently added element.
+* Why `pop()` should be performed only once when validating a closing bracket.
+* The importance of processing nested structures in LIFO order.
+* How a correct algorithm can be derived from the rules of the problem rather than from a memorized pattern.
+
+## SDET Relevance
+
+Stack-based validation is useful when working with structured or nested data.
+
+Similar logic can appear when validating:
+
+* Nested test configuration structures
+* Parentheses or delimiters in generated test data
+* Structured expressions
+* Nested API payloads
+* Parser or log validation utilities
+
+## Problem-Solving Takeaway
+
+The key step was recognizing that the requirement:
+
+> **"The most recently opened bracket must close first."**
+
+is a **Last In, First Out** problem.
+
+That observation naturally led to using a Stack rather than repeatedly searching the string.
