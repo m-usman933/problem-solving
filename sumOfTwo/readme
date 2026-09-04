@@ -1,0 +1,35 @@
+# Problem #4 — Two Sum
+
+Given an array of numbers and a target, find the indices of two numbers whose sum equals the target. The same element cannot be used twice.
+
+## Approach
+
+### Brute Force
+
+For each number, calculate the required difference and search the remaining elements for it.
+
+**Time:** O(n²)
+**Space:** O(1)
+
+### Optimized
+
+Use a `Map` storing:
+
+```text
+number → index
+```
+
+For each number, calculate the required difference and check whether it already exists in the Map. If found, return the current index and stored index; otherwise, store the current number and its index.
+
+**Time:** O(n) average
+**Space:** O(n)
+
+## Key Learning
+
+* Recognize when repeated searching can be replaced by a lookup structure.
+* Use `Map` when you need both a value and associated information such as its index.
+* Check the required value before storing the current value to avoid using the same element twice.
+
+## SDET Relevance
+
+The same `Map` pattern is useful for correlating IDs with positions, records, or other associated test/API data.
