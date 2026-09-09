@@ -1,0 +1,24 @@
+# Problem #7 — Move Zeroes
+
+Given an array of numbers, move all `0`s to the end while maintaining the relative order of the non-zero elements.
+
+The operation must be performed **in-place**.
+
+## Approach
+
+Use a **write pointer** to track where the next non-zero value should be placed.
+
+Traverse the array once and copy each non-zero value to the current write position. After all non-zero values have been placed, fill the remaining positions with `0`.
+
+**Time:** O(n)
+**Space:** O(1)
+
+## Key Learning
+
+* Use a read/scan pointer and a write pointer for in-place array manipulation.
+* The write pointer marks the boundary between processed non-zero values and remaining positions.
+* Multiple linear passes can still result in O(n) time.
+
+## SDET Relevance
+
+This pattern is useful when processing test data or API results in-place while preserving the order of meaningful values and minimizing additional memory usage.

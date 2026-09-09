@@ -1,0 +1,29 @@
+# Problem #6 — Best Time to Buy and Sell Stock
+
+Given an array of stock prices, find the maximum profit possible by buying once and selling later.
+
+The buy day must occur before the sell day.
+
+## Approach
+
+Track two values while scanning the array:
+
+* **Minimum price** seen so far.
+* **Maximum profit** achieved so far.
+
+For each price, either update the minimum price or calculate the profit from selling at the current price and update the maximum profit.
+
+This avoids nested loops and processes the array in a single pass.
+
+**Time:** O(n)
+**Space:** O(1)
+
+## Key Learning
+
+* Maintain the minimum value seen so far rather than finding the global minimum.
+* Calculate the result incrementally while scanning.
+* One-pass algorithms can eliminate unnecessary nested loops.
+
+## SDET Relevance
+
+This pattern is useful when scanning time-ordered test data or metrics where the best result depends on maintaining the minimum or maximum value observed so far.
