@@ -1,0 +1,30 @@
+# Problem #10 — Product of Array Except Self
+
+Given an array of integers, return an array where each element is the product of every value except the one at the current index.
+
+## Approach
+
+For each index:
+
+```text
+result[i] = left product × right product
+```
+
+Use two passes without an additional working array.
+
+**Left-to-right pass:** store the product of all elements to the left of each index.
+
+**Right-to-left pass:** maintain a running right product and multiply it into the stored left product.
+
+**Time:** O(n)
+**Space:** O(1) extra space, excluding the output array.
+
+## Key Learning
+
+* Break a complex calculation into reusable left and right accumulations.
+* Use the output array to store intermediate results when extra arrays are restricted.
+* A running product can replace repeated multiplication.
+
+## SDET Relevance
+
+This pattern is useful when processing API or test-data collections where each result depends on aggregated information from both sides of an element.

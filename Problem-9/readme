@@ -1,0 +1,25 @@
+# Problem #9 — Maximum Subarray
+
+Given an array of integers, find the contiguous subarray with the largest sum and return that sum.
+
+## Approach
+
+Use **Kadane's Algorithm** with two variables:
+
+* `currentSum` — best subarray sum ending at the current position.
+* `maxSum` — best sum found so far.
+
+For each element, decide whether to continue the existing subarray or start a new one. Then update `maxSum`.
+
+**Time:** O(n)
+**Space:** O(1)
+
+## Key Learning
+
+* Decide whether previous work is helping or hurting the current result.
+* Track a local best (`currentSum`) and a global best (`maxSum`).
+* Proper initialization is important for arrays containing only negative values.
+
+## SDET Relevance
+
+This pattern is useful when processing ordered test metrics, logs, or numeric data where the goal is to find the best contiguous range or peak cumulative result.
