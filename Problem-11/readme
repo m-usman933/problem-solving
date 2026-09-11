@@ -1,0 +1,34 @@
+# Problem #11 — Longest Substring Without Repeating Characters
+
+Given a string, find the length of the longest contiguous substring that contains no repeated characters.
+
+## Approach
+
+Use a **sliding window** with a `Map` that stores:
+
+```text
+character → most recent index
+```
+
+Maintain a `start` pointer for the beginning of the current window.
+
+For each character:
+
+* If it has appeared before, move `start` to one position after its previous occurrence, but never move `start` backward.
+* Update the character's index in the Map.
+* Calculate the current window length.
+* Update `maxLength` when a longer window is found.
+
+**Time:** O(n)
+**Space:** O(n)
+
+## Key Learning
+
+* Use a sliding window to maintain a valid range while scanning once.
+* A `Map` can store the latest index needed to efficiently adjust the window.
+* The window boundary must only move forward.
+* Track both the current window length and the maximum found so far.
+
+## SDET Relevance
+
+Sliding-window techniques are useful for analyzing sequences of test data, logs, events, or API results where uniqueness or bounded ranges need to be maintained efficiently.
