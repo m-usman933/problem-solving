@@ -1,7 +1,6 @@
 function printZerosInEnd(numbers : number[])
 {
     let write : number =0;
-    let arrayOriginalSize : number = numbers.length;
 
     for(let i=0; i<numbers.length ; i++)
     {
@@ -12,8 +11,9 @@ function printZerosInEnd(numbers : number[])
         }
     }
 
-    for (let i= (numbers.length-1); i<arrayOriginalSize;i++)
+    while (write < numbers.length)
     {
-        numbers[i] = 0;
+        numbers[write] = 0;
+        write++;
     }
 }

@@ -19,5 +19,5 @@ function maximumSum(numbers: number[]) : number
             maxSum = currentSum;
         }
     }
-    return 0;
+    return maxSum;
 }

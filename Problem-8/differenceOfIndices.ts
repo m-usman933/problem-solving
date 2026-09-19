@@ -10,11 +10,7 @@ function isInArray(numbers : number[],k : number): boolean
             if (indices_difference <=k)
                 return true;
         }
-
-        else
-        {
             Map1.set(numbers[i],i);
-        }
     }
     return false;
 }

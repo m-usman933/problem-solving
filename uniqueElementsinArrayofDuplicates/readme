@@ -1,0 +1,30 @@
+# Problem #5 — Remove Duplicates from Sorted Array
+
+Given a **sorted** array of numbers, remove duplicates in-place so that each value appears only once.
+
+Return the number of unique elements.
+
+## Approach
+
+Use two pointers:
+
+* **Scan pointer:** traverses the array.
+* **Write pointer:** tracks the position of the last unique value.
+
+Because the array is sorted, duplicates appear next to each other.
+
+When the scanned value matches the value at `write`, it is a duplicate. Otherwise, increment `write` and copy the new unique value into that position.
+
+**Time:** O(n)
+**Space:** O(1)
+
+## Key Learning
+
+* Recognize when a sorted input eliminates the need for extra lookup structures.
+* Use two pointers to modify an array in-place.
+* Separate the **read/scan position** from the **write position**.
+* The write pointer represents the last position containing a unique value.
+
+## SDET Relevance
+
+This pattern is useful when processing sorted test data, API results, database records, or other datasets where duplicates need to be removed without allocating another collection.

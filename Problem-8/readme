@@ -1,0 +1,30 @@
+# Problem #8 — Contains Duplicate II
+
+Given an array of numbers and an integer `k`, determine whether the array contains two equal values whose indices are at most `k` apart.
+
+## Approach
+
+Use a `Map` to store:
+
+```text
+number → most recent index
+```
+
+For each number, check whether it has been seen before. If it has, calculate the distance between the current index and the stored index.
+
+If the distance is `<= k`, return `true`. Otherwise, update the Map with the current index.
+
+If no valid pair is found, return `false`.
+
+**Time:** O(n) average
+**Space:** O(n)
+
+## Key Learning
+
+* Use a `Map` when a value needs to be associated with additional information.
+* Store the **most recent index** rather than the first occurrence.
+* Update the stored index after every occurrence.
+
+## SDET Relevance
+
+This pattern is useful for detecting repeated test data, duplicate records, or recurring IDs within a defined range or window.
