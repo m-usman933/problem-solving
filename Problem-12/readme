@@ -1,0 +1,36 @@
+# Problem #12 — Longest Consecutive Sequence
+
+Given an unsorted array of integers, find the length of the longest sequence of consecutive integers.
+
+The numbers do not need to be adjacent in the original array.
+
+## Approach
+
+Use a `Set` for O(1) average-time existence checks.
+
+For each unique number, determine whether it is the **start of a sequence** by checking whether `number - 1` exists.
+
+If it does not exist, start counting from that number and continue checking for:
+
+```text
+number + 1
+number + 2
+number + 3
+...
+```
+
+Track the longest sequence found.
+
+**Time:** O(n) average
+**Space:** O(n)
+
+## Key Learning
+
+* Use a `Set` when only fast existence checks are required.
+* A number is a sequence start when its predecessor does not exist.
+* Avoid repeatedly processing duplicate values by traversing the `Set`.
+* Nested loops can still result in O(n) time when the total work across the inner loops is bounded.
+
+## SDET Relevance
+
+This pattern is useful when analyzing unordered test data, IDs, event sequences, or records where consecutive values need to be detected efficiently.
