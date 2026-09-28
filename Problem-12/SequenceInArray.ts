@@ -8,12 +8,13 @@ function findSequence(numbers : number[]) : number
         set1.add(number);
     }
 
-    for(let i=0; i<numbers.length; i++)
+    for(const number of set1)
     {
-        let count =1;
-        if(!set1.has(numbers[i] -1))
+        
+        if(!set1.has(number -1))
         {
-            let currentNumber = numbers[i];
+            let count =1;
+            let currentNumber = number;
 
             while(set1.has(currentNumber + 1))
             {

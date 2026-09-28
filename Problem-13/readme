@@ -1,0 +1,29 @@
+# Problem #13 — Valid Palindrome
+
+Given a string, determine whether it is a palindrome after converting uppercase letters to lowercase and ignoring non-alphanumeric characters.
+
+## Approach
+
+Use the **two-pointer technique**:
+
+* `left` starts at the beginning.
+* `right` starts at the end.
+* Skip non-alphanumeric characters from either side.
+* Compare the remaining characters case-insensitively.
+* Move both pointers inward after a successful comparison.
+
+If any pair does not match, return `false`. If the pointers meet without a mismatch, return `true`.
+
+**Time:** O(n)
+**Space:** O(1)
+
+## Key Learning
+
+* Two pointers are useful when comparing elements from opposite ends.
+* A `while` loop gives explicit control over both pointers.
+* Ignored characters should only advance the pointer that is currently on an invalid character.
+* Normalize values before comparing when case should not matter.
+
+## SDET Relevance
+
+This pattern is useful when validating strings where formatting characters, casing, or other non-essential characters should not affect the comparison.
