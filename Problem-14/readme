@@ -1,0 +1,35 @@
+# Problem #14 — Group Anagrams
+
+Given an array of strings, group the anagrams together.
+
+Two strings are anagrams if they contain the same characters with the same frequencies, regardless of their order.
+
+## Approach
+
+Use a frequency `Map` for each string to count character occurrences.
+
+Convert the character frequencies into a fixed 26-character representation (`a`–`z`) and use that representation as a unique signature.
+
+Use a second `Map` to group strings by their signature:
+
+```text
+signature → array of anagrams
+```
+
+Strings with the same signature are placed in the same group.
+
+**Time:** O(n × k)
+**Space:** O(n × k)
+
+Where `n` is the number of strings and `k` is the average length of each string.
+
+## Key Learning
+
+* Use frequency counting to identify anagrams.
+* Create a deterministic signature so anagrams produce the same key.
+* Use a `Map<string, string[]>` for grouping by a computed key.
+* Separate temporary data for the current string from persistent grouping data.
+
+## SDET Relevance
+
+This pattern is useful when grouping test data, API responses, logs, or records based on computed characteristics rather than their original order.
